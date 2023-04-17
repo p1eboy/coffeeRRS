@@ -1,28 +1,72 @@
 const coffeSize = ['small', 'medium', 'large']; 
 const coffeeType = ['cappuccino', 'latte', 'espresso', 'americano'];
-let temp;
+let type;
 let recipe;
+let sugar;
+let syrup;
+let milkQuantity;
 
 
+function makeCoffeeGreatAgain(type, size, sugar, syrup) {
+  let output = 
+  `Your ${coffeeType[type]} recipe is:\n
+  1. Take ${coffeSize[size]} cup.\n`;
+  
+  if (sugar == true) {
+    output += `5. Add sugar.\n`;
+  }
+  if (syrup == true) {
+    output += `6. Add ${syrup} syrup\n`;
+  }
+
+  switch (size) {
+    case 0:
+      milkQuantity = 150;
+      break;
+    case 1:
+      milkQuantity = 250;
+      break;
+    case 2:
+      milkQuantity = 330;
+      break;
+  }
+
+  switch (type) {
+    case 0:
+      output += `2. Add ${milkQuantity}ml of milk.\n 3. Add espresso shot.\n 4. Add shaked up warm milk.\n`;
+      break;
+    case 1:
+      output += `2. Add ${milkQuantity + milkQuantity / 10}ml of milk.\n 3. Add espresso shot.\n 4. Add shaked up warm milk.\n`;
+      break;
+    case 2:
+      output += '2. Add espresso shot.\n';
+      break;
+    case 3:
+      `2. Add espresso shot.\n 3. Add ${milkQuantity}ml of water`;
+  }
+  return output;
+}
+
+console.log(makeCoffeeGreatAgain(1, 2, 0, 'vanila'));
 
 function greeting(name) {
     console.log('Hello ' + name + '. Do you want some coffee?');
 }
 
-function whatCoffeeType(type) {
-    return temp += 'Your ' + coffeeType[type] + ' recipe is:';
-}
+// function whatCoffeeType(type) {
+//     return type = 'Your ' + coffeeType[type] + ' recipe is:';
+// }
 
-function whatSize(size) {
-    return recipe += 'Take ' + coffeSize[size] + ' cup.';
-}
+// function whatSize(size) {
+//     return recipe = 'Take ' + coffeSize[size] + ' cup.';
+// }
 
-greeting('Sergey');
-whatCoffeeType(1);
-whatSize(0);
+// greeting('Sergey');
+// whatCoffeeType(1);
+// whatSize(0);
 
-console.log(temp);
-console.log(recipe);
+// console.log(temp);
+// console.log(recipe);
 
 // =======================================
 
